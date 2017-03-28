@@ -76,3 +76,37 @@ exports.getItemList = function(req,res,next){
 		}
 	});
 }
+
+exports.getItemInfo = function(req,res,next){
+
+	var params = req.query || req,params;
+	
+	if(!params.id){
+		jsonWrite(res,{
+			code: '400',
+			message: 'id is null!',
+			success: false
+		}) 
+
+		return; 
+	}
+
+	var sql = 'select id,title,img,rent,payStyle,rentStyle,floor,roomType,area,decorate,village,bigArea,smallArea,`desc`,lat,lng from rentalData where id='+id;
+	sqlConnect.query(sql,function(err,results,fields){
+		if(err){
+			jsonWrite(res,{
+				code: '500',
+				message: 'select error!',
+				success: false
+			}) 
+
+		}else{
+			jsonWrite(res,{
+				code: '200',
+				message: 'success',
+				success: true,
+				data: results
+			})  
+		}
+	});
+}
