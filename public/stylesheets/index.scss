@@ -8,3 +8,40 @@ header{
 	font-size: px2rem(35);
 }
 
+content{
+	h1{
+		padding-top: px2rem(200);
+		padding-bottom: px2rem(200);
+		text-align:center;
+	}
+
+	.select-wrap{
+		font-size: px2rem(40);
+		width: px2rem(600);
+		margin: 0 auto px2rem(150);
+		text-align:center;
+
+		label{
+			margin-right:px2rem(30);
+		}
+	}
+
+	#cityList{
+		font-size: px2rem(40);
+		width:px2rem(200);
+	}
+
+	.btn-wrap{
+		text-align:center;
+	}
+
+	#searchBtn{
+		font-size: px2rem(40);
+		width: px2rem(350);
+		height:px2rem(88);
+		background:#439df7;
+		color:#fff;
+		border-radius: px2rem(10);
+	}
+}
+

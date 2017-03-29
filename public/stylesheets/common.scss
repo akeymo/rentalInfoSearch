@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+@function px2rem($px){
+  @if $px == 0 {
+    @return 0;
+  }
+  @return $px / 75 * 1rem;
+}
+
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -23,7 +30,7 @@ input, textarea {
 body, div, ul, li, h1, h2, h3, h4, h5, h6, p, form, input, textarea, select, label, article, aside, footer, header, menu, nav, section, dl, dt, dd, article, section {
   margin: 0;
   padding: 0;
-  border: none;
+  // border: none;
 }
 
 body {
@@ -54,9 +61,9 @@ input, select, textarea, button {
 input [type='text'], button, select {
   padding: 0;
   line-height: 1;
-  -webkit-appearance: none;
-  appearance: none;
-  border: none;
+  // -webkit-appearance: none;
+  // appearance: none;
+  // border: none;
 }
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
@@ -73,4 +80,34 @@ input[type='number']::-webkit-outer-spin-button {
 }
 input[type='number']::-webkit-inner-spin-button {
   display: none;
+}
+
+// footer样式
+footer{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:px2rem(88);
+  z-index:7;
+  border-top: 1px solid #e4e4e4;
+}
+
+.footer-wrap{
+  clear:both;
+  text-align:center;
+  line-height:px2rem(88);
+
+  li{
+    float:left;
+    width:33.333333%;
+    font-size:px2rem(35);
+
+  }
+
+  li.cur a{
+    color:#439df7;
+  }
+
 }

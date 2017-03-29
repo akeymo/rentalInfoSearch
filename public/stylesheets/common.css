@@ -16,8 +16,7 @@ input, textarea {
 
 body, div, ul, li, h1, h2, h3, h4, h5, h6, p, form, input, textarea, select, label, article, aside, footer, header, menu, nav, section, dl, dt, dd, article, section {
   margin: 0;
-  padding: 0;
-  border: none; }
+  padding: 0; }
 
 body {
   font-family: Helvetica;
@@ -41,10 +40,7 @@ input, select, textarea, button {
 
 input [type='text'], button, select {
   padding: 0;
-  line-height: 1;
-  -webkit-appearance: none;
-  appearance: none;
-  border: none; }
+  line-height: 1; }
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px white inset; }
@@ -60,4 +56,25 @@ input[type='number']::-webkit-outer-spin-button {
 input[type='number']::-webkit-inner-spin-button {
   display: none; }
 
-/*# sourceMappingURL=reset.css.map */
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.17333rem;
+  z-index: 7;
+  border-top: 1px solid #e4e4e4; }
+
+.footer-wrap {
+  clear: both;
+  text-align: center;
+  line-height: 1.17333rem; }
+  .footer-wrap li {
+    float: left;
+    width: 33.333333%;
+    font-size: 0.46667rem; }
+  .footer-wrap li.cur a {
+    color: #439df7; }
+
+/*# sourceMappingURL=common.css.map */

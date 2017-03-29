@@ -1,5 +1,5 @@
 h1 {
-  font-size: 0.48rem; }
+  font-size: 0.66667rem; }
 
 h2 {
   font-size: 0.42667rem; }
@@ -17,5 +17,29 @@ header {
   padding: 0.4rem 0 0.4rem 0.4rem;
   background: #f5f5f5;
   font-size: 0.46667rem; }
+
+content h1 {
+  padding-top: 2.66667rem;
+  padding-bottom: 2.66667rem;
+  text-align: center; }
+content .select-wrap {
+  font-size: 0.53333rem;
+  width: 8rem;
+  margin: 0 auto 2rem;
+  text-align: center; }
+  content .select-wrap label {
+    margin-right: 0.4rem; }
+content #cityList {
+  font-size: 0.53333rem;
+  width: 2.66667rem; }
+content .btn-wrap {
+  text-align: center; }
+content #searchBtn {
+  font-size: 0.53333rem;
+  width: 4.66667rem;
+  height: 1.17333rem;
+  background: #439df7;
+  color: #fff;
+  border-radius: 0.13333rem; }
 
 /*# sourceMappingURL=index.css.map */

@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: 'root',
-	port: '33306',
+	port: '3306',
 	database: 'rentalDatabase'
 });
 
