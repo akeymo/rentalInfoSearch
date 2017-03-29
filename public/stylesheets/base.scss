@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+@function px2rem($px){
+  @if $px == 0 {
+    @return 0;
+  }
+  @return $px / 75 * 1rem;
+}
+
+h1 {
+  font-size: px2rem(36);
+}
+
+h2 {
+  font-size: px2rem(32);
+}
+
+h3 {
+  font-size: px2rem(28);
+}
+
+h4 {
+  font-size: px2rem(24);
+}
+
+h5 {
+  font-size: px2rem(20);
+}

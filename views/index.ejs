@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>首页</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
+	<script src="/javascripts/common.js"></script>
+	<script src="/javascripts/index.js"></script>
+</head>
+<body>
+<header>
+	<span>当前位置：</span>
+	<span id="curLocation"></span>
+</header>
+<content>
+	<h1>租房信息查询系统</h1>
+	<div>
+		<label>区域选择</label>
+		<select id="cityList">
+			<option value="200000">上海</option>
+		</select>
+	</div>
+	<div>
+		<button id="searchBtn">搜索</button>
+	</div>
+</content>
+<% include include/footer.html %>
+</body>
+</html>
