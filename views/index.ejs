@@ -7,26 +7,37 @@
 	<title>首页</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
+	<script src="/javascripts/jquery.js"></script>
+	<script src="/javascripts/vue.js"></script>
+	<script src="https://api.map.baidu.com/getscript?v=2.0&ak=Pz6Y5Nk5EeNtGN0xzHf8243nGHUQGQcV&services=&t=20160928173929&s=1"></script>
 	<script src="/javascripts/common.js"></script>
 	<script src="/javascripts/index.js"></script>
 </head>
 <body>
 <header>
 	<span>当前位置：</span>
-	<span id="curLocation"></span>
+	<span id="curLocation" v-modal="curCity"></span>
 </header>
 <content>
 	<h1>租房信息查询系统</h1>
 	<div class="select-wrap">
 		<label>区域选择</label>
 		<select id="cityList">
-			<option value="200000">上海</option>
+			<option value="0">选择城市</option>
+			<option value="200000">上海市</option>
+			<option value="430000">武汉市</option>
 		</select>
 	</div>
 	<div class="btn-wrap">
 		<button id="searchBtn">搜索</button>
 	</div>
 </content>
-<% include include/footer.html %>
+<footer>
+	<ul class="footer-wrap">
+		<li class="cur"><a href="#">首页</a></li>
+		<li><a href="#">数据图</a></li>
+		<li><a href="#">个人中心</a></li>
+	</ul>
+</footer>
 </body>
 </html>

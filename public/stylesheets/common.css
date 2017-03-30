@@ -63,7 +63,8 @@ footer {
   bottom: 0;
   width: 100%;
   height: 1.17333rem;
-  z-index: 7;
+  z-index: 4;
+  background: #fff;
   border-top: 1px solid #e4e4e4; }
 
 .footer-wrap {
@@ -76,5 +77,14 @@ footer {
     font-size: 0.46667rem; }
   .footer-wrap li.cur a {
     color: #439df7; }
+
+.fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5; }
 
 /*# sourceMappingURL=common.css.map */

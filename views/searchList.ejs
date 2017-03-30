@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>搜索结果页</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/searchList.css">
+	<script src="/javascripts/jquery.js"></script>
+	<script src="/javascripts/common.js"></script>
+	<script src="/javascripts/iscroll.js"></script>
+	<script src="/javascripts/searchList.js"></script>
+</head>
+<body>
+<header>
+	<ul class="choose-panel">
+		<li data-type="areainfo">区域</li>
+		<li data-type="priceinfo">价格</li>
+		<li data-type="houseinfo">房型</li>
+	</ul>
+	<div class="optionList" id="optionList" style="display: none;">
+		<div class="areainfo list-info-wrap" id="areainfo" style="display: none;">
+			<!-- 区域信息 -->
+			<div class="webkit-flex regioninfo" id="regioninfo">
+				<ul class="regionlist" id="regionlist">
+					<li class="li-cur" data-type="all">全部</li>
+					<li data-type="pudong">浦东</li>
+					<li data-type="minhang">闵行</li>
+					<li data-type="xuhui">徐汇</li>
+					<li data-type="baoshan">宝山</li>
+					<li data-type="songjiang">松江</li>
+					<li data-type="jiading">嘉定</li>
+					<li data-type="putuo">普陀</li>
+					<li data-type="yangpu">杨浦</li>
+					<li data-type="changning">长宁</li>
+					<li data-type="hongkou">虹口</li>
+					<li data-type="jingan">静安</li>
+					<li data-type="huangpu">黄浦</li>
+					<li data-type="zhabei">闸北</li>
+					<li data-type="luwan">卢湾</li>
+					<li data-type="fengxian">奉贤</li>
+					<li data-type="qingpu">青浦</li>
+					<li data-type="jinshan">金山</li>
+					<li data-type="chongming">崇明</li>
+					<li data-type="shzhoubian">上海周边</li>
+				</ul>
+			</div>
+			<!-- 板块信息 -->
+			<div class="webkit-flex blockinfo" id="blockinfo-pudong" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="all">全部</li>
+					<li data-type="pudong-lujiazui">陆家嘴</li>
+					<li data-type="pudong-hangtou">航头</li>
+					<li data-type="pudong-kangqiao">康桥</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-minhang" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="all">全部</li>
+					<li data-type="minhang-hanghua">航华</li>
+					<li data-type="minhang-xinzhuang">莘庄</li>
+					<li data-type="minhang-chunshen">春申</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 价格信息 -->
+		<div class="priceinfo list-info-wrap" id="priceinfo" style="display: none;">
+			<ul class="pricelist">
+				<li data-lowPrice="0" data-upPrice="0">全部</li>
+				<li data-lowPrice="0" data-upPrice="500">500元以下</li>
+				<li data-lowPrice="500" data-upPrice="1000">500-1000元</li>
+				<li data-lowPrice="1000" data-upPrice="1500">1000-1500元</li>
+				<li data-lowPrice="1500" data-upPrice="2000">1500-2000元</li>
+				<li data-lowPrice="2000" data-upPrice="2500">2000-2500元</li>
+				<li data-lowPrice="2500" data-upPrice="3000">2500-3000元</li>
+				<li data-lowPrice="3000" data-upPrice="4000">3000-4000元</li>
+				<li data-lowPrice="4000" data-upPrice="8000">4000-8000元</li>
+				<li data-lowPrice="8000" data-upPrice="1000000">8000元以上</li>
+			</ul>
+		</div>
+		<!-- 房型信息 -->	
+		<div class="houseinfo list-info-wrap" id="houseinfo" style="display: none;">
+			<ul class="houselist">
+				<li data-houseType="0">全部</li>
+				<li data-houseType="1">一室</li>
+				<li data-houseType="2">两室</li>
+				<li data-houseType="3">三室</li>
+				<li data-houseType="4">四室</li>
+				<li data-houseType="5">五室及以上</li>
+			</ul>
+		</div>
+	</div>
+	
+</header>
+<content>
+	<div class="item-wrap">
+		<div class="item">
+			
+		</div>
+	</div>
+</content>
+<footer>
+	<ul class="footer-wrap">
+		<li><a href="/">首页</a></li>
+		<li><a href="/dataMap">数据图</a></li>
+		<li><a href="/personal">个人中心</a></li>
+	</ul>
+</footer>
+<div class="fade" style="display: none;"></div>
+</body>
+</html>
