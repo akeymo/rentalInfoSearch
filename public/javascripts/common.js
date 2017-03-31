@@ -75,3 +75,11 @@
 
 
 })(window.jQuery);
+
+function buffer(o){
+    $(o).animate({
+        "opacity":1
+    }).parent().css({
+        "backgroundImage":"none"
+    });
+}

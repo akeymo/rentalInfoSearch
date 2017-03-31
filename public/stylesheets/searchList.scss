@@ -65,6 +65,9 @@
 
 }
 
-content{
-	padding-top: px2rem(88);
+.content{
+	padding: px2rem(88) px2rem(15) 0;
+	.itemPro{
+		position:relative;
+	}
 }

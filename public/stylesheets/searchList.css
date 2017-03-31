@@ -61,7 +61,9 @@ h5 {
     height: 6rem;
     overflow: hidden; }
 
-content {
-  padding-top: 1.17333rem; }
+.content {
+  padding: 1.17333rem 0.2rem 0; }
+  .content .itemPro {
+    position: relative; }
 
 /*# sourceMappingURL=searchList.css.map */
