@@ -32,6 +32,10 @@ app.use('/searchList', function(req, res, next) {
   res.render('searchList');
 });
 
+app.use('/itemInfo', function(req, res, next) {
+  res.render('itemInfo');
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

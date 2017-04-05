@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/searchList.css">
 	<script src="/javascripts/jquery.js"></script>
 	<script src="/javascripts/common.js"></script>
+	<script src="/javascripts/vue.js"></script>
 	<script src="/javascripts/iscroll.js"></script>
 	<script src="/javascripts/searchList.js"></script>
 </head>
@@ -24,7 +25,7 @@
 			<!-- 区域信息 -->
 			<div class="webkit-flex regioninfo" id="regioninfo">
 				<ul class="regionlist" id="regionlist">
-					<li class="li-cur" data-type="all">全部</li>
+					<li class="li-cur" data-type="region-all">全部</li>
 					<li data-type="pudong">浦东</li>
 					<li data-type="minhang">闵行</li>
 					<li data-type="xuhui">徐汇</li>
@@ -49,7 +50,7 @@
 			<!-- 板块信息 -->
 			<div class="webkit-flex blockinfo" id="blockinfo-pudong" style="display: none;">
 				<ul class="blocklist">
-					<li class="li-cur" data-type="all">全部</li>
+					<li class="li-cur" data-type="pudong-all">全部</li>
 					<li data-type="pudong-lujiazui">陆家嘴</li>
 					<li data-type="pudong-hangtou">航头</li>
 					<li data-type="pudong-kangqiao">康桥</li>
@@ -57,7 +58,7 @@
 			</div>
 			<div class="webkit-flex blockinfo" id="blockinfo-minhang" style="display: none;">
 				<ul class="blocklist">
-					<li class="li-cur" data-type="all">全部</li>
+					<li class="li-cur" data-type="minhang-all">全部</li>
 					<li data-type="minhang-hanghua">航华</li>
 					<li data-type="minhang-xinzhuang">莘庄</li>
 					<li data-type="minhang-chunshen">春申</li>
@@ -94,25 +95,25 @@
 	
 </header>
 <div class="content">
-	<div class="item-wrap">
-		<div class="itemPro">
-			<a href="#">
+	<div class="item-wrap" id="item-wrap">
+		<div class="itemPro" v-for="item in dataMap">
+			<a v-bind:href="'/itemInfo?id='+item.id">
 				<div class="bg-pic">
-                    <img onload="buffer(this)" node-name="$n.picture+ resetSize('180+180')">
+                    <img onload="buffer(this)" v-bind:src="item.img">
                 </div>
                 <div class="good-detail">
-                    <h3>标题</h3>
+                    <h2 class="tit">{{item.title}}</h2>
                     <p>
-                    	<span>地区1</span>
+                    	<span>{{item.bigArea}}</span>
                     	<span>-</span>
-                    	<span>地区2</span>
+                    	<span>{{item.smallArea}}</span>
                     </p>
                     <p>
-                    	<span>一室一厅</span>
-                    	<span>整租</span>
+                    	<span>{{item.roomType}}</span>
+                    	<span>{{item.rentStyle}}</span>
                     </p>
-                    <p>
-                    	<em>3000</em>元/月
+                    <p class="price">
+                    	<em>{{item.rent}}</em>元 / 月
                     </p>
                 </div>
 			</a>

@@ -62,8 +62,38 @@ h5 {
     overflow: hidden; }
 
 .content {
-  padding: 1.17333rem 0.2rem 0; }
+  padding: 1.17333rem 0.2rem 1.70667rem; }
   .content .itemPro {
-    position: relative; }
+    position: relative;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    height: 2.66667rem;
+    border-bottom: 1px solid #dfe0e1; }
+    .content .itemPro .bg-pic {
+      display: inline-block;
+      width: 2.66667rem;
+      height: 2rem;
+      margin-right: 0.4rem; }
+      .content .itemPro .bg-pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; }
+    .content .itemPro .good-detail {
+      width: 6.4rem;
+      display: inline-block;
+      position: absolute;
+      font-size: 0.4rem;
+      line-height: 0.58667rem; }
+      .content .itemPro .good-detail .tit {
+        margin-bottom: 0.2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .content .itemPro .good-detail .price {
+        position: absolute;
+        right: 0;
+        top: 1.33333rem;
+        font-size: 0.46667rem;
+        color: #439df7; }
 
 /*# sourceMappingURL=searchList.css.map */

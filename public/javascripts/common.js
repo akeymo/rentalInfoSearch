@@ -55,10 +55,10 @@
                 wapCity.getLocation(pt, function(rs){    
                     var addComp = rs.addressComponents;
                     if(!sessionStorage.getItem('userLocation')){
-                        sessionStorage.setItem('userLocation',addComp.province);
+                        sessionStorage.setItem('userLocation',addComp.city);
                     }   
-                    console.log(addComp.province);
-                    return addComp.province;
+                    console.log(addComp.city);
+                    return addComp.city;
                 });  
             } else {
                 console.log('定位失败，原因：' + this.getStatus());
@@ -66,11 +66,31 @@
         }, { enableHighAccuracy: true });
     };
 
+    // 获取url参数
     $.getUrlParam = function(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]);
         return null;
+    };
+    // 添加url参数
+    $.UrlUpdateParams = function (url, name, value) {
+        var r = url;
+        if (r != null && r != 'undefined' && r != "") {
+            value = encodeURIComponent(value);
+            var reg = new RegExp("(^|)" + name + "=([^&]*)(|$)");
+            var tmp = name + "=" + value;
+            if (url.match(reg) != null) {
+                r = url.replace(eval(reg), tmp);
+            }else {
+                if (url.match("[\?]")) {
+                    r = url + "&" + tmp;
+                }else{
+                    r = url + "?" + tmp;
+                }
+            }
+        }
+        return r;
     }
 
 

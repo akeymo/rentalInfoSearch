@@ -66,8 +66,43 @@
 }
 
 .content{
-	padding: px2rem(88) px2rem(15) 0;
+	padding: px2rem(88) px2rem(15) px2rem(128);
 	.itemPro{
 		position:relative;
+		padding-top:px2rem(30);
+		padding-bottom:px2rem(30);
+		height:px2rem(200);
+		border-bottom:1px solid #dfe0e1;
+		.bg-pic{
+			display:inline-block;
+			width:px2rem(200);
+			height:px2rem(150);
+			margin-right:px2rem(30);
+			img{
+				width:100%;
+				height:100%;
+				object-fit: cover;
+			}
+		}
+		.good-detail{
+			width:px2rem(480);
+			display:inline-block;
+			position:absolute;
+			font-size:px2rem(30);
+			line-height:px2rem(44);
+			.tit{
+				margin-bottom:px2rem(15);
+				overflow:hidden;
+				text-overflow:ellipsis;
+				white-space:nowrap;
+			}
+			.price{
+				position:absolute;
+				right:0;
+				top:px2rem(100);
+				font-size:px2rem(35);
+				color:#439df7;
+			}
+		}
 	}
 }

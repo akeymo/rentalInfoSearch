@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>详情页</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/itemInfo.css">
+	<script src="/javascripts/jquery.js"></script>
+	<script src="/javascripts/common.js"></script>
+	<script src="/javascripts/vue.js"></script>
+	<script src="/javascripts/itemInfo.js"></script>
+</head>
+<body>
+<div class="content" id="content">
+	<div class="big-pic">
+		<img onload="buffer(this)" v-bind:src="dataMap.img">
+	</div>
+	<div class="txt-wrap">
+		<div class="tit-wrap">
+			<div class="tit">
+				<h2>{{dataMap.title}}</h2>
+			</div>
+			<div class="collect">收藏</div>
+		</div>
+		<div class="info-wrap">
+			<ul>
+				<li class="price"><strong>租金：</strong>{{dataMap.rent}}元/月</li>
+				<li><strong>押付：</strong>{{dataMap.payStyle}}</li>
+				<li><strong>房型：</strong>{{dataMap.roomType}}</li>
+				<li><strong>面积：</strong>{{dataMap.area}}</li>
+				<li><strong>楼层：</strong>{{dataMap.floor}}</li>
+				<li><strong>装修：</strong>{{dataMap.decorate}}</li>
+				<li><strong>小区：</strong>{{dataMap.village}}</li>
+			</ul>
+		</div>
+		<div class="desc-wrap">
+			{{dataMap.desc}}
+		</div>	
+	</div>
+</div>
+<a class="go-back" href="javascript:history.back()"></a>
+</body>
+</html>

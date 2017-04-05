@@ -31,7 +31,7 @@ exports.getItemList = function(req,res,next){
 
 	var thisItem = ((params.pageStart-1)*params.pageSize)+1;
 
-	var sql = 'select id,title,img,rent,rentStyle,roomType,area,village,smallArea from rentalData where 1=1';
+	var sql = 'select id,title,img,rent,rentStyle,roomType,area,bigArea,smallArea from rentalData where 1=1';
 	
 	if(params.bigArea){
 		sql += ' and bigArea=' + params.bigArea;
