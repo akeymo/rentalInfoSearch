@@ -16,16 +16,40 @@ h5 {
 .content {
   padding-bottom: 1.70667rem; }
 
+.big-pic {
+  width: 100%;
+  height: 6.66667rem; }
+  .big-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+
 .tit-wrap {
-  padding: 0 0.4rem 0.4rem;
+  padding: 0.4rem;
   border-bottom: 1px solid #e7e7e7; }
-  .tit-wrap .tit {
+  .tit-wrap h2 {
     display: inline-block;
     width: 7.73333rem;
-    line-height: 1.5; }
-  .tit-wrap .collect {
+    padding-right: 0.2rem;
+    line-height: 1.5;
+    border-right: 1px solid #d9d9d9; }
+  .tit-wrap .collectbtn {
     display: inline-block;
-    font-size: 0.37333rem; }
+    font-size: 0.37333rem;
+    width: 1.06667rem;
+    position: relative; }
+  .tit-wrap .collect i:before {
+    content: '';
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url("../images/collect_nav.png") no-repeat; }
+  .tit-wrap .collected i:before {
+    content: '';
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url("../images/collect2.png") no-repeat; }
 
 .desc-wrap {
   padding: 0.4rem;

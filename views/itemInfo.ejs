@@ -19,10 +19,10 @@
 	</div>
 	<div class="txt-wrap">
 		<div class="tit-wrap">
-			<div class="tit">
-				<h2>{{dataMap.title}}</h2>
+			<h2>{{dataMap.title}}</h2>
+			<div class="collectbtn" v-bind:data-id="dataMap.id">
+				<i></i>
 			</div>
-			<div class="collect">收藏</div>
 		</div>
 		<div class="info-wrap">
 			<ul>
@@ -33,6 +33,7 @@
 				<li><strong>楼层：</strong>{{dataMap.floor}}</li>
 				<li><strong>装修：</strong>{{dataMap.decorate}}</li>
 				<li><strong>小区：</strong>{{dataMap.village}}</li>
+				<li><strong>发布时间：</strong></li>
 			</ul>
 		</div>
 		<div class="desc-wrap">

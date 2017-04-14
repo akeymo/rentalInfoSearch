@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/personal.css">
+	<script src="/javascripts/jquery.js"></script>
+	<script src="/javascripts/common.js"></script>
+	<script src="/javascripts/vue.js"></script>
+	<script src="/javascripts/personal.js"></script>
+</head>
+<body>
+<header>
+	个人中心
+	<span id="logoff">退出登录</span>
+</header>
+<div class="content">
+	<div class="item-wrap" id="item-wrap">
+		<div class="itemPro" v-for="item in dataMap">
+			<a v-bind:href="item.url">
+				<div class="bg-pic">
+                    <img onload="buffer(this)" v-bind:src="item.img">
+                </div>
+                <div class="good-detail">
+                    <h2 class="tit">{{item.title}}</h2>
+                    <p>
+                    	<span>{{item.bigArea}}</span>
+                    	<span>-</span>
+                    	<span>{{item.smallArea}}</span>
+                    </p>
+                    <p>
+                    	<span>{{item.roomType}}</span>
+                    	<span>{{item.rentStyle}}</span>
+                    </p>
+                    <p class="price">
+                    	<em>{{item.rent}}</em>元 / 月
+                    </p>
+                </div>
+			</a>
+		</div>
+	</div>
+</div>
+<footer>
+	<ul class="footer-wrap">
+		<li><a href="/">首页</a></li>
+		<li><a href="/dataMap">数据图</a></li>
+		<li class="cur clickPersonal"><a href="#">个人中心</a></li>
+	</ul>
+</footer>
+<div class="fade" style="display: none;"></div>
+</body>
+</html>

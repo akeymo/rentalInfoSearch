@@ -103,3 +103,14 @@ function buffer(o){
         "backgroundImage":"none"
     });
 }
+
+$(function(){
+    $('.clickPersonal').on('click',function(){
+        var flag = window.localStorage.getItem('userId');
+        if(!!flag){
+            window.location.href = '/personal';
+        }else{
+            window.location.href = '/login';
+        }
+    })
+})

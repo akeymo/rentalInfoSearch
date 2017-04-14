@@ -5,17 +5,49 @@
 	padding-bottom:px2rem(128);
 }
 
+.big-pic{
+	width:100%;
+	height:px2rem(500);
+	img{
+		width:100%;
+		height:100%;
+		object-fit: cover;
+	}
+}
+
 .tit-wrap{
-	padding:0 px2rem(30) px2rem(30);
+	padding:px2rem(30);
 	border-bottom:1px solid #e7e7e7;
-	.tit{
+	h2{
 		display:inline-block;
 		width:px2rem(580);
+		padding-right:px2rem(15);
 		line-height:1.5;
+		border-right:1px solid #d9d9d9;
 	}
-	.collect{
+	.collectbtn{
 		display:inline-block;
 		font-size:px2rem(28);
+		width:px2rem(80);
+		position:relative;
+	}
+	.collect{
+		i:before{
+			content:'';
+			display:block;
+			width:px2rem(60);
+			height:px2rem(60);
+			background:url('../images/collect_nav.png') no-repeat;
+		}
+	}
+	.collected{
+		i:before{
+			content:'';
+			display:block;
+			width:px2rem(60);
+			height:px2rem(60);
+			background:url('../images/collect2.png') no-repeat;
+		}
 	}
 }
 

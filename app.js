@@ -36,6 +36,22 @@ app.use('/itemInfo', function(req, res, next) {
   res.render('itemInfo');
 });
 
+app.use('/personal', function(req, res, next) {
+  res.render('personal');
+});
+
+app.use('/login', function(req, res, next) {
+  res.render('login');
+});
+
+app.use('/register', function(req, res, next) {
+  res.render('register');
+});
+
+app.use('/dataMap', function(req, res, next) {
+  res.render('dataMap');
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
