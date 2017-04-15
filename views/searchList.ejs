@@ -16,9 +16,9 @@
 <body>
 <header>
 	<ul class="choose-panel">
-		<li data-type="areainfo">区域</li>
-		<li data-type="priceinfo">价格</li>
-		<li data-type="houseinfo">房型</li>
+		<li id="chooseArea" data-type="areainfo">区域</li>
+		<li id="choosePrice" data-type="priceinfo">价格</li>
+		<li id="chooseRoomType" data-type="houseinfo">房型</li>
 	</ul>
 	<div class="optionList" id="optionList" style="display: none;">
 		<div class="areainfo list-info-wrap" id="areainfo" style="display: none;">
@@ -119,6 +119,9 @@
 			</a>
 		</div>
 	</div>
+	<div class="loading-tip" style="display: none;">
+        正在加载
+    </div>
 </div>
 <footer>
 	<ul class="footer-wrap">

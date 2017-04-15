@@ -29,24 +29,27 @@ exports.getItemList = function(req,res,next){
 		return; 
 	}
 
-	var thisItem = ((params.pageStart-1)*params.pageSize)+1;
+	var thisItem = ((params.pageStart-1)*params.pageSize);
 
 	var sql = 'select id,url,title,img,rent,rentStyle,roomType,area,bigArea,smallArea from rentalData where 1=1';
 	
 	if(params.bigArea){
-		sql += ' and bigArea=' + params.bigArea;
+		params.bigArea = decodeURIComponent(params.bigArea);
+		sql += ' and bigArea=\'' + params.bigArea + '\'';
 	}
 	if(params.smallArea){
-		sql += ' and smallArea=' + params.smallArea;
+		params.smallArea = decodeURIComponent(params.smallArea);
+		sql += ' and smallArea=\'' + params.smallArea + '\'';
 	}
-	if(params.lowPrice && !params.upPrice){
-		sql += ' and rent >=' + params.lowPrice + ' and rent <=' + params.upPrice;
+	if(params.lowPrice && params.upPrice){
+		sql += ' and (rent+0) >=' + parseInt(params.lowPrice) + ' and (rent+0) <=' + parseInt(params.upPrice);
 	}
 	if(params.roomType){
-		sql += ' and roomType=' + params.roomType;
+		sql += ' and roomType like \'' + params.roomType + '室%\'';
 	}
 
 	sql += ' limit ' + thisItem +' , '+params.pageSize;
+	console.log(sql);
 	
 	sqlConnect.query(sql,function(err,results,fields){
 		var returnObj = {
@@ -323,9 +326,10 @@ exports.getDataMapPrice = function(req,res,next){
 	var params = req.query || req.params;
 	var sql = 'SELECT AVG(rent+0) avg,MAX(rent+0) max,MIN(rent+0) min FROM rentaldata WHERE 1=1';
 	if(params.bigArea != 'all'){
-		sql += 'and bigArea=\'' + params.area + '\'';  
+		params.bigArea = decodeURIComponent(params.bigArea);
+		sql += ' and bigArea=\'' + params.bigArea + '\'';  
 	}
-
+	
 	sqlConnect.query(sql,function(err,results,fields){
 		if(err){
 			jsonWrite(res,{
@@ -339,6 +343,42 @@ exports.getDataMapPrice = function(req,res,next){
 				message: '查询成功！',
 				success: true,
 				data: results
+			})
+		}
+	})
+}
+
+exports.getPriceScatter = function(req,res,next){
+	// 获取区域价格数据，散点图用
+	var params = req.query || req.params;
+	var sql = 'SELECT rent,area FROM rentaldata where 1=1';
+	if(params.bigArea != 'all'){
+		params.bigArea = decodeURIComponent(params.bigArea);
+		sql += ' and bigArea=\'' + params.bigArea + '\'';  
+	}
+	sqlConnect.query(sql,function(err,results,fields){
+		if(err){
+			jsonWrite(res,{
+				code: '500',
+				message: '查询失败!',
+				success: false
+			}) 
+		}else{
+			var dataMap = [];
+			if(results.length){
+				for(var i=0,len=results.length;i<len;i++){
+					var _dataMap = [];
+					var _area = results[i].area.replace(/平米/,'');
+					_dataMap.push(_area.trim());
+					_dataMap.push(results[i].rent);
+					dataMap.push(_dataMap);
+				}
+			}
+			jsonWrite(res,{
+				code: '200',
+				message: '查询成功！',
+				success: true,
+				data: dataMap
 			})
 		}
 	})

@@ -13,9 +13,21 @@ h4 {
 h5 {
   font-size: 0.26667rem; }
 
-#cityList {
+body {
+  background-color: #f4f4f4; }
+
+.content {
+  padding-bottom: 1.70667rem; }
+
+.cityList {
   font-size: 0.53333rem;
   width: 2.66667rem;
-  margin-left: 0.4rem; }
+  margin-left: 0.4rem;
+  background-color: transparent; }
+
+.echarts-wrap {
+  width: 8.66667rem;
+  height: 6.66667rem;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=dataMap.css.map */

@@ -25,11 +25,11 @@
 }
 
 .optionList{
-	position: absolute;
+	position: fixed;
 	top: px2rem(88);
 	font-size: px2rem(35);
 	width: 100%;
-	height: px2rem(450);
+	// height: px2rem(450);
 	background: #fff;
 	overflow: hidden;
 	z-index: 10;
@@ -59,8 +59,20 @@
 	.webkit-flex{
 		width: 100%;
 		-webkit-box-flex:1;
-		height: px2rem(450);
+		// height: px2rem(450);
 		overflow: hidden;
+		ul{
+			max-height: px2rem(450);
+			overflow-y: auto;
+		}
+	}
+
+	.list-info-wrap{
+		overflow: hidden;
+		ul{
+			max-height: px2rem(450);
+			overflow-y: auto;
+		}
 	}
 
 }

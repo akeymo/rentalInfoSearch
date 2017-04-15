@@ -96,13 +96,97 @@
 
 })(window.jQuery);
 
-function buffer(o){
+var buffer = function(o){
     $(o).animate({
         "opacity":1
     }).parent().css({
         "backgroundImage":"none"
     });
-}
+};
+
+var ScrollOrderPagination = function(o) {
+    this.hasNext = true;
+    this.currentPage = (o.data && o.data.currentPage) || 1;
+    this.showCount = (o.data && o.data.showCount) || 10;
+
+    this.scrollEl = o.scrollEl;
+    this.height = o.height;
+
+    this.destory = function() {
+        m.scrollEl.off("scroll.pagination");
+    };
+
+    var m = this;
+
+    if (!m.scrollEl) {
+        $.alert('请设置滑动元素');
+    }
+
+    if (!m.height || m.height / 1 <= 0) {
+        $.alert('请设置滑动范围高度');
+    }
+
+    m.ajax = function () {
+        var nextObj = $.extend(o.data, {
+            currentPage: m.currentPage,
+            showCount: m.showCount,
+            callbackFn: function(hasNext) {
+                m.hasNext = hasNext;
+                m.load.hide();
+            }
+        });
+        m.load.show();
+        o.nextPage(nextObj);
+    };
+
+    m.next = function() {
+        if (m.hasNext) {
+            m.hasNext = false;
+            m.currentPage = m.currentPage / 1 + 1;
+            if (typeof o.nextPage == 'function') {
+                m.ajax();
+            } else {
+                $.alert('未定义分页数据核心函数');
+            }
+        }
+    };
+
+    m.scrollEl.on("scroll.pagination", function() {
+        if ( o.load.css('display') != 'none' ) return;
+        var top = document.documentElement.scrollHeight || document.body.scrollHeight,
+            height = $(window).scrollTop() + $(window).height();
+
+        if (top <= height && m.hasNext && m.load.css('display') === 'none') {
+            m.load.show();
+            m.next();
+        }
+    });
+
+    m.createLoad = function () {
+        var divNode = document.createElement('div');
+
+        divNode.setAttribute('class', 'loading-tip');
+        divNode.innerText = '正在加载';
+
+        $('body').append(divNode);
+    };
+
+    m.init = function() {
+        m = $.extend(m, o.data);
+        m.hasNext = true;
+        m.currentPage = o.data.currentPage || 1;
+        m.showCount = o.data.showCount || 10;
+
+        if (!o.load) {
+            m.createLoad();
+        }
+
+        m.load = o.load || $('.load');
+        m.ajax();
+    };
+
+    m.init();
+};
 
 $(function(){
     $('.clickPersonal').on('click',function(){

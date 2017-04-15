@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -79,12 +80,29 @@ footer {
     color: #439df7; }
 
 .fade {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 5; }
+
+/*
+ *loading效果
+*/
+.loading-tip {
+  display: none;
+  font-size: 0.37333rem;
+  text-align: center; }
+  .loading-tip:before {
+    content: '';
+    display: inline-block;
+    width: 0.42667rem;
+    height: 0.42667rem;
+    margin-right: 0.13333rem;
+    vertical-align: middle;
+    background: url(../images/loading.gif) 0 0 no-repeat;
+    background-size: 100%; }
 
 /*# sourceMappingURL=common.css.map */

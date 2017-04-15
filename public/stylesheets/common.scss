@@ -114,11 +114,31 @@ footer{
 }
 
 .fade{
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background: rgba(0,0,0,.5);
   z-index: 5;
+}
+
+/*
+ *loading效果
+*/
+.loading-tip{
+  display: none;
+  font-size:px2rem(28);
+  text-align: center;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: px2rem(32);
+    height: px2rem(32);
+    margin-right: px2rem(10);
+    vertical-align: middle;
+    background: url(../images/loading.gif) 0 0 no-repeat;
+    background-size: 100%;
+  }
 }

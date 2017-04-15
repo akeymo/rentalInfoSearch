@@ -43,5 +43,9 @@ router.get('/ajax/getCollectList',function(req,res,next){
 router.get('/ajax/getDataMapPrice',function(req,res,next){
 	service.getDataMapPrice(req,res);
 });
+// 获取区域全部价格（散点图用）
+router.get('/ajax/getPriceScatter',function(req,res,next){
+	service.getPriceScatter(req,res);
+});
 
 module.exports = router;

@@ -2,9 +2,23 @@
 
 @import 'base';
 
+body{
+	background-color:#f4f4f4;
+}
 
-#cityList{
+.content{
+	padding-bottom: px2rem(128);
+}
+
+.cityList{
 	font-size: px2rem(40);
 	width:px2rem(200);
 	margin-left:px2rem(30);
+	background-color:transparent;
+}
+
+.echarts-wrap{
+	width: px2rem(650);
+	height: px2rem(500);
+	margin: 0 auto;
 }

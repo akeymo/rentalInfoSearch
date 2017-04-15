@@ -16,15 +16,28 @@
 <header>
 	
 </header>
-<content>
-	<div class="select-wrap">
-		<select id="cityList">
-			<option value="0">选择区域</option>
-			<option value="浦东">浦东</option>
-			<option value="闵行">闵行</option>
-		</select>
+<div class="content">
+	<div class="max-min-avg">
+		<div class="select-wrap">
+			<select class="cityList">
+				<option value="all">选择区域</option>
+				<option value="浦东">浦东</option>
+				<option value="闵行">闵行</option>
+			</select>
+		</div>
+		<div class="echarts-wrap" id="maxMinAvg"></div>	
 	</div>
-</content>
+	<div class="scatter-wrap">
+		<div class="select-wrap">
+			<select class="cityList">
+				<option value="all">选择区域</option>
+				<option value="浦东">浦东</option>
+				<option value="闵行">闵行</option>
+			</select>
+		</div>
+		<div class="echarts-wrap" id="scatter"></div>
+	</div>
+</div>
 <footer>
 	<ul class="footer-wrap">
 		<li><a href="/">首页</a></li>
