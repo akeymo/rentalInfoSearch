@@ -20,7 +20,7 @@
 <div class="content">
 	<div class="item-wrap" id="item-wrap">
 		<div class="itemPro" v-for="item in dataMap">
-			<a v-bind:href="item.url">
+			<a v-bind:href="item.url" v-bind:data-id="item.id">
 				<div class="bg-pic">
                     <img onload="buffer(this)" v-bind:src="item.img">
                 </div>

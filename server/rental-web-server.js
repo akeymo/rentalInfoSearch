@@ -250,7 +250,7 @@ exports.removeCollect = function(req,res,next){
 exports.getCollectList = function(req,res,next){
 	// 获取收藏列表
 	var params = req.query || req.params;
-	var sql = 'SELECT rentaldata.url,rentaldata.title,rentaldata.img,rentaldata.rent,rentaldata.rentStyle,rentaldata.roomType,rentaldata.area,rentaldata.bigArea,rentaldata.smallArea FROM rentaldata WHERE rentaldata.id in (SELECT rental_collect.itemId FROM rental_collect WHERE userId='+params.userId+')';
+	var sql = 'SELECT rentaldata.id,rentaldata.url,rentaldata.title,rentaldata.img,rentaldata.rent,rentaldata.rentStyle,rentaldata.roomType,rentaldata.area,rentaldata.bigArea,rentaldata.smallArea FROM rentaldata WHERE rentaldata.id in (SELECT rental_collect.itemId FROM rental_collect WHERE userId='+params.userId+')';
 	sqlConnect.query(sql,function(err,results,fields){
 		if(err){
 			jsonWrite(res,{
@@ -379,6 +379,26 @@ exports.getPriceScatter = function(req,res,next){
 				message: '查询成功！',
 				success: true,
 				data: dataMap
+			})
+		}
+	})
+}
+
+exports.getMapData = function(req,res,next){
+	var sql = 'SELECT id,img,lng,lat FROM rentaldata';
+	sqlConnect.query(sql,function(err,results,fields){
+		if(err){
+			jsonWrite(res,{
+				code: '500',
+				message: '查询失败!',
+				success: false
+			}) 
+		}else{
+			jsonWrite(res,{
+				code: '200',
+				message: '查询成功！',
+				success: true,
+				data: results
 			})
 		}
 	})

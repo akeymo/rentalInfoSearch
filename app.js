@@ -52,6 +52,10 @@ app.use('/dataMap', function(req, res, next) {
   res.render('dataMap');
 });
 
+app.use('/mapModel', function(req, res, next) {
+  res.render('mapModel');
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -79,6 +79,15 @@
 
 .content{
 	padding: px2rem(88) px2rem(15) px2rem(128);
+	#switchMap{
+		width:100%;
+		height:px2rem(88);
+		line-height:px2rem(88);
+		font-size:px2rem(30);
+		color:#439df7;
+		text-align:center;
+		border-bottom:1px solid #ccc;
+	}
 	.itemPro{
 		position:relative;
 		padding-top:px2rem(30);

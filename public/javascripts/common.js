@@ -13,7 +13,7 @@
         maxScale = 1.0;
     }
 
-    metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + maxScale + ', minimum-scale=' + scale + ',user-scalable=no');
+    metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + maxScale + ', minimum-scale=' + scale + ', user-scale=no');
 
     docEl.setAttribute('data-dpr', dpr);
 

@@ -22,6 +22,10 @@ $(function(){
 
 		bindEvent: function(){
 			var own = this;
+			$('#switchMap').on('click',function(){
+				window.location.href = '/mapModel'
+			})
+
 			$(document).on('click',function(){
 				$('.fade').hide();
 				$('#optionList').hide();

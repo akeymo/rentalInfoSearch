@@ -32,6 +32,34 @@ $(function(){
 					window.location.href = '/';
 				}
 			})
+
+			// 长按删除
+			var timeOutEvent=0;
+			$('body').delegate('.itemPro', 'touchstart', function() {
+				var _this = $(this);
+				var itemId = $(this).find('a').attr('data-id');
+				timeOutEvent = setTimeout(function(){
+					timeOutEvent = 0;   
+	    			var checkRemove = confirm('确定要删除收藏吗？');
+	    			if(checkRemove){
+	    				$.get('/users/ajax/removeCollect?userId='+own.userId+'&itemId='+itemId,function(data){
+	    					if(data.success){
+	    						_this.remove();
+	    					}else{
+	    						alert(data.message);
+	    					}
+	    				})
+	    			}
+				},500);  
+			});
+			$('body').delegate('.itemPro', 'touchmove', function(e) {
+				clearTimeout(timeOutEvent);   
+		        timeOutEvent = 0;   
+		        e.preventDefault();    
+			});
+			$('body').delegate('.itemPro', 'touchend', function() {
+				clearTimeout(timeOutEvent);    
+			});
 		},
 	};
 
