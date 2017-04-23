@@ -47,6 +47,10 @@ router.get('/ajax/getDataMapPrice',function(req,res,next){
 router.get('/ajax/getPriceScatter',function(req,res,next){
 	service.getPriceScatter(req,res);
 });
+// 获取饼图数据
+router.get('/ajax/getPieData',function(req,res,next){
+	service.getPieData(req,res);
+});
 // 地图模式
 router.get('/ajax/getMapData',function(req,res,next){
 	service.getMapData(req,res);

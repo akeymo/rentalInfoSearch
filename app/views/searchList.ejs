@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>搜索结果页</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/searchList.css">
+	<script src="/javascripts/jquery.js"></script>
+	<script src="/javascripts/common.js"></script>
+	<script src="/javascripts/vue.js"></script>
+	<script src="/javascripts/iscroll.js"></script>
+	<script src="/javascripts/searchList.js"></script>
+</head>
+<body>
+<header>
+	<ul class="choose-panel">
+		<li id="chooseArea" data-type="areainfo">区域</li>
+		<li id="choosePrice" data-type="priceinfo">价格</li>
+		<li id="chooseRoomType" data-type="houseinfo">房型</li>
+	</ul>
+	<div class="optionList" id="optionList" style="display: none;">
+		<div class="areainfo list-info-wrap" id="areainfo" style="display: none;">
+			<!-- 区域信息 -->
+			<div class="webkit-flex regioninfo" id="regioninfo">
+				<ul class="regionlist" id="regionlist">
+					<li class="li-cur" data-type="region-all">全部</li>
+					<li data-type="pudong">浦东</li>
+					<li data-type="minhang">闵行</li>
+					<li data-type="xuhui">徐汇</li>
+					<li data-type="baoshan">宝山</li>
+					<li data-type="songjiang">松江</li>
+					<li data-type="jiading">嘉定</li>
+					<li data-type="putuo">普陀</li>
+					<li data-type="yangpu">杨浦</li>
+					<li data-type="changning">长宁</li>
+					<li data-type="hongkou">虹口</li>
+					<li data-type="jingan">静安</li>
+					<li data-type="huangpu">黄浦</li>
+					<li data-type="zhabei">闸北</li>
+					<li data-type="luwan">卢湾</li>
+					<li data-type="fengxian">奉贤</li>
+					<li data-type="qingpu">青浦</li>
+					<li data-type="jinshan">金山</li>
+					<li data-type="chongming">崇明</li>
+				</ul>
+			</div>
+			<!-- 板块信息 -->
+			<div class="webkit-flex blockinfo" id="blockinfo-pudong" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="pudong-all">全部</li>
+					<li data-type="pudong-lujiazui">陆家嘴</li>
+					<li data-type="pudong-hangtou">航头</li>
+					<li data-type="pudong-kangqiao">康桥</li>
+					<li data-type="">周浦</li>
+					<li data-type="">临港新城</li>
+					<li data-type="">惠南</li>
+					<li data-type="">新场</li>
+					<li data-type="">祝桥</li>
+					<li data-type="">高行</li>
+					<li data-type="">御桥</li>
+					<li data-type="">联洋</li>
+					<li data-type="">碧云</li>
+					<li data-type="">世纪公园</li>
+					<li data-type="">塘桥</li>
+					<li data-type="">杨东</li>
+					<li data-type="">源深</li>
+					<li data-type="">洋泾</li>
+					<li data-type="">金桥</li>
+					<li data-type="">张江</li>
+					<li data-type="">世博滨江</li>
+					<li data-type="">南码头</li>
+					<li data-type="">上南</li>
+					<li data-type="">三林</li>
+					<li data-type="">六里</li>
+					<li data-type="">花木</li>
+					<li data-type="">北蔡</li>
+					<li data-type="">浦东外环</li>
+					<li data-type="">外高桥</li>
+					<li data-type="">曹路</li>
+					<li data-type="">唐镇</li>
+					<li data-type="">川沙</li>
+					<li data-type="">金杨</li>
+					<li data-type="">淮坊</li>
+					<li data-type="">梅园</li>
+					<li data-type="">泥城</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-minhang" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="minhang-all">全部</li>
+					<li data-type="minhang-hanghua">航华</li>
+					<li data-type="minhang-xinzhuang">莘庄</li>
+					<li data-type="minhang-chunshen">春申</li>
+					<li data-type="">梅陇</li>
+					<li data-type="">七宝</li>
+					<li data-type="">古美罗阳</li>
+					<li data-type="">华漕</li>
+					<li data-type="">静安新城</li>
+					<li data-type="">浦江</li>
+					<li data-type="">颛桥</li>
+					<li data-type="">龙柏金汇</li>
+					<li data-type="">金虹桥</li>
+					<li data-type="">江川路</li>
+					<li data-type="">吴泾</li>
+					<li data-type="">马桥</li>
+					<li data-type="">龙茗</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-xuhui" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="xuhui-all">全部</li>
+					<li data-type="">复兴中路</li>
+					<li data-type="">淮海西路</li>
+					<li data-type="">徐家汇</li>
+					<li data-type="">肇家浜路</li>
+					<li data-type="">万体馆</li>
+					<li data-type="">斜土路</li>
+					<li data-type="">龙华</li>
+					<li data-type="">植物园</li>
+					<li data-type="">上海南站</li>
+					<li data-type="">田林</li>
+					<li data-type="">康健</li>
+					<li data-type="">华东理工</li>
+					<li data-type="">长桥</li>
+					<li data-type="">华泾</li>
+					<li data-type="">滨江</li>
+					<li data-type="">湖南路</li>
+					<li data-type="">建国西路</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-baoshan" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="baoshan-all">全部</li>
+					<li data-type="">张庙</li>
+					<li data-type="">大场</li>
+					<li data-type="">大华</li>
+					<li data-type="">上大</li>
+					<li data-type="">共康</li>
+					<li data-type="">泗塘</li>
+					<li data-type="">高境</li>
+					<li data-type="">淞南</li>
+					<li data-type="">顾村</li>
+					<li data-type="">罗店</li>
+					<li data-type="">月浦</li>
+					<li data-type="">杨行</li>
+					<li data-type="">共富</li>
+					<li data-type="">通河</li>
+					<li data-type="">淞宝</li>
+					<li data-type="">罗泾</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-songjiang" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="songjiang-all">全部</li>
+					<li data-type="">车墩</li>
+					<li data-type="">洞泾</li>
+					<li data-type="">九亭</li>
+					<li data-type="">松江新城</li>
+					<li data-type="">新桥</li>
+					<li data-type="">松江城区</li>
+					<li data-type="">泗泾</li>
+					<li data-type="">莘闵</li>
+					<li data-type="">松江老城</li>
+					<li data-type="">佘山</li>
+					<li data-type="">松江大学城</li>
+					<li data-type="">小昆山</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-jiading" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="jiading-all">全部</li>
+					<li data-type="">真新</li>
+					<li data-type="">嘉定新城</li>
+					<li data-type="">安亭</li>
+					<li data-type="">南翔</li>
+					<li data-type="">嘉定城区</li>
+					<li data-type="">丰庄</li>
+					<li data-type="">江桥新城</li>
+					<li data-type="">嘉定镇</li>
+					<li data-type="">菊园新区</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-putuo" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="putuo-all">全部</li>
+					<li data-type="">光新</li>
+					<li data-type="">长寿路</li>
+					<li data-type="">中远两湾城</li>
+					<li data-type="">武宁</li>
+					<li data-type="">长风</li>
+					<li data-type="">曹杨</li>
+					<li data-type="">真光</li>
+					<li data-type="">万里</li>
+					<li data-type="">长征</li>
+					<li data-type="">甘泉宜川</li>
+					<li data-type="">桃浦</li>
+					<li data-type="">真如</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-yangpu" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="yangpu-all">全部</li>
+					<li data-type="">东外滩</li>
+					<li data-type="">五角场</li>
+					<li data-type="">周家嘴路</li>
+					<li data-type="">控江路</li>
+					<li data-type="">黄兴公园</li>
+					<li data-type="">杨浦公园</li>
+					<li data-type="">杨浦大桥</li>
+					<li data-type="">中原社区</li>
+					<li data-type="">新江湾城</li>
+					<li data-type="">鞍山</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-changning" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="changning-all">全部</li>
+					<li data-type="">古北</li>
+					<li data-type="">中山公园</li>
+					<li data-type="">虹桥路</li>
+					<li data-type="">镇宁路</li>
+					<li data-type="">新华路</li>
+					<li data-type="">天山</li>
+					<li data-type="">仙霞</li>
+					<li data-type="">动物园</li>
+					<li data-type="">北新泾</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-hongkou" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="hongkou-all">全部</li>
+					<li data-type="">北外滩</li>
+					<li data-type="">临平路</li>
+					<li data-type="">四川北路</li>
+					<li data-type="">鲁迅公园</li>
+					<li data-type="">和平公园</li>
+					<li data-type="">曲阳</li>
+					<li data-type="">凉城</li>
+					<li data-type="">江湾镇</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-jingan" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="jingan-all">全部</li>
+					<li data-type="">南京西路</li>
+					<li data-type="">静安寺</li>
+					<li data-type="">江宁路</li>
+					<li data-type="">曹家渡</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-huangpu" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="huangpu-all">全部</li>
+					<li data-type="">黄埔滨江</li>
+					<li data-type="">人民广场</li>
+					<li data-type="">南京东路</li>
+					<li data-type="">豫园</li>
+					<li data-type="">老西门</li>
+					<li data-type="">蓬莱公园</li>
+					<li data-type="">董家渡</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-zhabei" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="zhabei-all">全部</li>
+					<li data-type="">新客站</li>
+					<li data-type="">西藏北路</li>
+					<li data-type="">大宁绿地</li>
+					<li data-type="">闸北公园</li>
+					<li data-type="">阳城永和</li>
+					<li data-type="">彭浦</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-luwan" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="luwan-all">全部</li>
+					<li data-type="">淮海中路</li>
+					<li data-type="">新天地</li>
+					<li data-type="">复兴公园</li>
+					<li data-type="">打浦桥</li>
+					<li data-type="">五里桥</li>
+					<li data-type="">世博滨江</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-fengxian" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="fengxian-all">全部</li>
+					<li data-type="">南桥</li>
+					<li data-type="">海湾旅游区</li>
+					<li data-type="">奉城</li>
+					<li data-type="">柘林</li>
+					<li data-type="">庄行</li>
+					<li data-type="">海湾</li>
+					<li data-type="">金汇</li>
+					<li data-type="">西渡</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-qingpu" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="qingpu-all">全部</li>
+					<li data-type="">青浦北部</li>
+					<li data-type="">重固</li>
+					<li data-type="">白鹤</li>
+					<li data-type="">徐泾</li>
+					<li data-type="">赵巷</li>
+					<li data-type="">青浦新城</li>
+					<li data-type="">朱家角</li>
+					<li data-type="">华新</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-jinshan" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="jinshan-all">全部</li>
+					<li data-type="">金山中部</li>
+					<li data-type="">石化</li>
+					<li data-type="">朱泾</li>
+					<li data-type="">枫泾</li>
+					<li data-type="">金山新城</li>
+					<li data-type="">亭林</li>
+					<li data-type="">漕泾</li>
+				</ul>
+			</div>
+			<div class="webkit-flex blockinfo" id="blockinfo-chongming" style="display: none;">
+				<ul class="blocklist">
+					<li class="li-cur" data-type="chongming-all">全部</li>
+					<li data-type="">城桥镇</li>
+					<li data-type="">崇明</li>
+					<li data-type="">崇明新城</li>
+					<li data-type="">堡镇</li>
+					<li data-type="">陈家镇</li>
+					<li data-type="">横沙岛</li>
+					<li data-type="">长兴岛</li>
+					<li data-type="">崇明其他</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 价格信息 -->
+		<div class="priceinfo list-info-wrap" id="priceinfo" style="display: none;">
+			<ul class="pricelist">
+				<li data-lowPrice="0" data-upPrice="0">全部</li>
+				<li data-lowPrice="0" data-upPrice="500">500元以下</li>
+				<li data-lowPrice="500" data-upPrice="1000">500-1000元</li>
+				<li data-lowPrice="1000" data-upPrice="1500">1000-1500元</li>
+				<li data-lowPrice="1500" data-upPrice="2000">1500-2000元</li>
+				<li data-lowPrice="2000" data-upPrice="2500">2000-2500元</li>
+				<li data-lowPrice="2500" data-upPrice="3000">2500-3000元</li>
+				<li data-lowPrice="3000" data-upPrice="4000">3000-4000元</li>
+				<li data-lowPrice="4000" data-upPrice="8000">4000-8000元</li>
+				<li data-lowPrice="8000" data-upPrice="1000000">8000元以上</li>
+			</ul>
+		</div>
+		<!-- 房型信息 -->	
+		<div class="houseinfo list-info-wrap" id="houseinfo" style="display: none;">
+			<ul class="houselist">
+				<li data-houseType="0">全部</li>
+				<li data-houseType="1">一室</li>
+				<li data-houseType="2">两室</li>
+				<li data-houseType="3">三室</li>
+				<li data-houseType="4">四室</li>
+				<li data-houseType="5">五室及以上</li>
+			</ul>
+		</div>
+	</div>
+	
+</header>
+<div class="content">
+	<div id="switchMap">
+		切换地图模式
+	</div>
+	<div class="item-wrap" id="item-wrap">
+		<div class="itemPro" v-for="item in dataMap">
+			<a v-bind:href="'/itemInfo?id='+item.id">
+				<div class="bg-pic">
+                    <img onload="buffer(this)" v-bind:src="item.img">
+                </div>
+                <div class="good-detail">
+                    <h2 class="tit">{{item.title}}</h2>
+                    <p>
+                    	<span>{{item.bigArea}}</span>
+                    	<span>-</span>
+                    	<span>{{item.smallArea}}</span>
+                    </p>
+                    <p>
+                    	<span>{{item.roomType}}</span>
+                    	<span>{{item.rentStyle}}</span>
+                    </p>
+                    <p class="price">
+                    	<em>{{item.rent}}</em>元 / 月
+                    </p>
+                </div>
+			</a>
+		</div>
+	</div>
+	<div class="loading-tip" style="display: none;">
+        正在加载
+    </div>
+</div>
+<footer>
+	<ul class="footer-wrap">
+		<li><a href="/">首页</a></li>
+		<li><a href="/dataMap">数据图</a></li>
+		<li class="clickPersonal"><a href="javascript:void(0)">个人中心</a></li>
+	</ul>
+</footer>
+<div class="fade" style="display: none;"></div>
+</body>
+</html>

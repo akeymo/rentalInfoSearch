@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>数据图</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/dataMap.css">
+	<script src="/javascripts/jquery.js"></script>
+	<script src="/javascripts/common.js"></script>
+	<script src="/javascripts/echarts.js"></script>
+	<script src="/javascripts/dataMap.js"></script>
+</head>
+<body>
+<header>
+	
+</header>
+<div class="content">
+	<div class="pie-chart-wrap">
+		<div class="echarts-wrap2" id="pieChart"></div>
+	</div>
+	<div class="max-min-avg">
+		<div class="select-wrap">
+			<select class="cityList">
+				<option value="all">选择区域</option>
+				<option value="浦东">浦东</option>
+				<option value="闵行">闵行</option>
+				<option value="徐汇">徐汇</option>
+				<option value="宝山">宝山</option>
+				<option value="松江">松江</option>
+				<option value="嘉定">嘉定</option>
+				<option value="普陀">普陀</option>
+				<option value="杨浦">杨浦</option>
+				<option value="长宁">长宁</option>
+				<option value="虹口">虹口</option>
+				<option value="静安">静安</option>
+				<option value="黄浦">黄浦</option>
+				<option value="闸北">闸北</option>
+				<option value="卢湾">卢湾</option>
+				<option value="奉贤">奉贤</option>
+				<option value="青浦">青浦</option>
+				<option value="金山">金山</option>
+				<option value="崇明">崇明</option>
+			</select>
+		</div>
+		<div class="echarts-wrap" id="maxMinAvg"></div>	
+	</div>
+	<div class="scatter-wrap">
+		<div class="select-wrap">
+			<select class="cityList">
+				<option value="all">选择区域</option>
+				<option value="浦东">浦东</option>
+				<option value="闵行">闵行</option>
+				<option value="徐汇">徐汇</option>
+				<option value="宝山">宝山</option>
+				<option value="松江">松江</option>
+				<option value="嘉定">嘉定</option>
+				<option value="普陀">普陀</option>
+				<option value="杨浦">杨浦</option>
+				<option value="长宁">长宁</option>
+				<option value="虹口">虹口</option>
+				<option value="静安">静安</option>
+				<option value="黄浦">黄浦</option>
+				<option value="闸北">闸北</option>
+				<option value="卢湾">卢湾</option>
+				<option value="奉贤">奉贤</option>
+				<option value="青浦">青浦</option>
+				<option value="金山">金山</option>
+				<option value="崇明">崇明</option>
+			</select>
+		</div>
+		<div class="echarts-wrap" id="scatter"></div>
+	</div>
+</div>
+<footer>
+	<ul class="footer-wrap">
+		<li><a href="/">首页</a></li>
+		<li class="cur"><a href="/dataMap">数据图</a></li>
+		<li class="clickPersonal"><a href="javascript:void(0)">个人中心</a></li>
+	</ul>
+</footer>
+</body>
+</html>

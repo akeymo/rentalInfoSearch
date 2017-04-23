@@ -5,9 +5,61 @@ $(function(){
 		priceScatterArea: 'all',
 
 		init: function(){
+			this.initPie();
 			this.initPriceData();
 			this.initPricescatter();
 			this.bindEvent();
+		},
+
+		initPie: function(){
+			$.get('/users/ajax/getPieData', function(data){
+				// 饼状图
+				if(data.success){
+					if(data.data.length){
+						var myChart = echarts.init(document.getElementById('pieChart'));
+						var option = {
+							tooltip: {
+						        trigger: 'item',
+						        formatter: "{a} <br/>{b}: {c} ({d}%)"
+						    },
+
+						    legend: {
+						        orient: 'vertical',
+						        x: 'left',
+						        // data:['南汇','卢湾','嘉定','奉贤','宝山','崇明','徐汇','普陀','杨浦','松江','浦东','虹口','金山','长宁','闵行','闸北','青浦','静安','黄浦']
+						    },
+						    series: [
+						        {
+						            name:'访问来源',
+						            type:'pie',
+						            radius: ['50%', '70%'],
+						            avoidLabelOverlap: false,
+						            label: {
+						                normal: {
+						                    show: false,
+						                    position: 'center'
+						                },
+						                emphasis: {
+						                    show: true,
+						                    textStyle: {
+						                        fontSize: '30',
+						                        fontWeight: 'bold'
+						                    }
+						                }
+						            },
+						            labelLine: {
+						                normal: {
+						                    show: false
+						                }
+						            },
+						            data:data.data
+						        }
+						    ]
+						}
+						myChart.setOption(option);
+					}
+				}
+			});
 		},
 
 		initPriceData: function(){
@@ -49,7 +101,7 @@ $(function(){
 								splitNumber: 10,
 								axisLabel:{
 									textStyle:{
-										fontSize:18
+										fontSize:14
 									}
 								},
 							},
@@ -129,7 +181,7 @@ $(function(){
 						            axisLabel : {
 						                formatter: '{value}',
 										textStyle:{
-											fontSize:18
+											fontSize:14
 										}
 						            },
 						            splitLine: {

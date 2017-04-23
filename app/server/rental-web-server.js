@@ -96,7 +96,7 @@ exports.getItemInfo = function(req,res,next){
 		return; 
 	}
 
-	var sql = 'select id,title,img,rent,payStyle,rentStyle,floor,roomType,area,decorate,village,bigArea,smallArea,`desc`,lat,lng from rentalData where id='+params.id;
+	var sql = 'select id,title,img,rent,payStyle,rentStyle,floor,roomType,area,decorate,village,bigArea,smallArea,`desc`,lat,lng,updateTime from rentalData where id='+params.id;
 	sqlConnect.query(sql,function(err,results,fields){
 		if(err){
 			jsonWrite(res,{
@@ -384,8 +384,28 @@ exports.getPriceScatter = function(req,res,next){
 	})
 }
 
+exports.getPieData = function(req,res,next){
+	var sql = 'SELECT COUNT(1) AS value,bigArea  AS name FROM rentaldata WHERE LENGTH(bigArea) = 6 GROUP BY bigArea';
+	sqlConnect.query(sql,function(err,results,fields){
+		if(err){
+			jsonWrite(res,{
+				code: '500',
+				message: '查询失败!',
+				success: false
+			}) 
+		}else{
+			jsonWrite(res,{
+				code: '200',
+				message: '查询成功！',
+				success: true,
+				data: results
+			})
+		}
+	})
+}
+
 exports.getMapData = function(req,res,next){
-	var sql = 'SELECT id,img,lng,lat FROM rentaldata';
+	var sql = 'SELECT id,img,lng,lat FROM rentaldata limit 0,1000';
 	sqlConnect.query(sql,function(err,results,fields){
 		if(err){
 			jsonWrite(res,{
